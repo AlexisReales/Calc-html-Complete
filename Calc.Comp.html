@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora jr</title>
+    <style>
+
+        body{
+            margin: 0;
+        }
+        header{
+            background-color:  #f261d8;
+            padding: 50px;
+        }
+        header h1{
+            color: bisque;
+            text-align: center;
+        }
+
+        .container{
+            border: 2px solid #f261d8;
+            border-radius: 25px;
+            margin-top: 30px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        input{
+            margin-top: 10px;
+            margin-left: 5px;
+            width: 50%;
+            border-radius: 10px;
+            padding: 7px;
+        }
+
+        input:hover{
+            background-color: pink;
+        }
+
+        button{
+            margin-top: 10px;
+            margin-left: 5px;
+            width: 50%;
+            border-radius: 10px;
+            padding: 7px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Calculadora jr</h1>
+    </header>
+
+    <div class="container">
+    <input type="number" id="x" placeholder="Valor de X">
+    <input type="number" id="y" placeholder="Valor de Y">
+    <input type="number" id="z" placeholder="Resultado" readonly>
+    <button type="button" onclick="somar()">+</button>
+    <button type="button" onclick="subtrair()">-</button> 
+    <button type="button" onclick="dividir()">/</button>
+    <button type="button" onclick="multiplicar()">*</button> 
+    <button type="button" onclick="potencia()">^</button>
+    <button type="button" onclick="raiz()">√</button>
+    <button type="button" onclick="redv()">//</button>
+    <button type="button" onclick="zero()">Reiniciar</button>
+    </div>
+
+    <script>
+        function calc(e){
+   
+            var operacao = e.value;
+            
+            var n1=parseFloat(document.getElementById("x").value);
+            var n2=parseFloat(document.getElementById("y").value);
+            
+            var calculo = eval(n1+operacao+n2);
+
+            if(!isNaN(calculo)){
+                document.getElementById('z').value = calculo
+            }
+        
+        }
+        const somar = function(){
+        let x = document.getElementById('x').value
+        let y = document.getElementById('y').value
+        z = parseFloat(x) + parseFloat(y)
+        document.getElementById('z').value = z
+        console.log(z)
+        }
+
+        const subtrair = function(){
+        let x = document.getElementById('x').value
+        let y = document.getElementById('y').value
+        z = parseFloat(x) - parseFloat(y)
+        document.getElementById('z').value = z
+        console.log(z)
+    }
+
+        const dividir = function(){
+        let x = document.getElementById('x').value
+        let y = document.getElementById('y').value
+        z = parseFloat(x) / parseFloat(y)
+        document.getElementById('z').value = z
+        console.log(z)
+    }
+
+        const multiplicar = function(){
+        let x = document.getElementById('x').value
+        let y = document.getElementById('y').value
+        z = parseFloat(x) * parseFloat(y)
+        document.getElementById('z').value = z
+        console.log(z)
+    }
+
+        const potencia = function(){
+        let x = document.getElementById('x').value
+        let y = document.getElementById('y').value
+        z = parseFloat(x) ** parseFloat(y)
+        document.getElementById('z').value = z
+        console.log(z)
+    }
+        const raiz = function(){
+        let x = document.getElementById('x').value
+        let y = document.getElementById('y').value
+        z = Math.sqrt(parseFloat(x))
+        document.getElementById('z').value = z
+        console.log(z)
+    }
+        const redv = function(){
+        let x = document.getElementById('x').value
+        let y = document.getElementById('y').value
+        z = x % y
+        document.getElementById('z').value = z
+        console.log(z)
+    }
+    const zero = function(){
+     document.getElementById('x').value = ""
+     document.getElementById('y').value = ""
+     document.getElementById('z').value = ""
+    }
+    </script>
+    
+</body>
+</html>
